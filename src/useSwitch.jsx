@@ -13,12 +13,7 @@ export default function useSwitch(defaultValue = false) {
 
     const [isOn, setIsOn] = useState(defaultValue)
 
-    const toggle = () => {
-        if (!isOn) {
-            setIsOn(true)
-        } else {
-            setIsOn(false)
-        }
-    }
+    const toggle = () => !isOn ? setIsOn(true) : setIsOn(false)
+
     return [isOn, toggle]
 }
