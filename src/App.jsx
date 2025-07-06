@@ -1,3 +1,4 @@
+import useCostumPointer from "./useCostumPointer";
 import useDate from "./useDate";
 import useSwitch from "./useSwitch";
 
@@ -5,8 +6,7 @@ import useSwitch from "./useSwitch";
 function App() {
   const [isOn, toggle] = useSwitch();
   const [currentDate, isRunning, setIsRunning] = useDate();
-  console.log(isRunning)
-
+  const customPointer = useCostumPointer("🔥")
   return (
     <>
       <div>
@@ -18,9 +18,12 @@ function App() {
         <h1>Data e ora attuali:</h1>
         <p>{currentDate.toLocaleString()}</p>
         <button onClick={() => isRunning ? setIsRunning(false) : setIsRunning(true)}>on/off</button>
-
-
       </div>
+      <div>
+        <h1>Sposta il mouse per vedere il cursore personalizzato!</h1>
+        {customPointer}
+      </div>
+
 
     </>
   )
